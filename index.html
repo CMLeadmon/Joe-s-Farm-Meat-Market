@@ -6,6 +6,10 @@
 <title>Joe's Farm Meat Market — Hurricane, West Virginia</title>
 <meta name="description" content="Joe's Farm Meat Market in Hurricane, West Virginia. Beef and pork, cut by Joe Leadmon, master butcher. Open Monday through Friday. Call (304) 562-6291.">
 
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -294,10 +298,10 @@
       align-items:start;
       grid-template-areas:
         "head  art"
-        "bio   art"
-        "sells art"
+        "bio   contact"
+        "sells contact"
         "deck  deck"
-        "hours contact"
+        "hours find"
         "foot  foot";
     }
 
@@ -310,9 +314,14 @@
     .bio     { grid-area:bio; }
     .sells   { grid-area:sells; }
     .deck    { grid-area:deck; display:block; }
-    .hours   { grid-area:hours; }
-    .contact { grid-area:contact; }
+    .hours   { grid-area:hours; align-self:start; }
+    .contact { grid-area:contact; align-self:start; }
+    .find    { grid-area:find; align-self:start; }
     footer   { grid-area:foot; }
+
+    /* the address gets room to breathe down here — make it count */
+    .find address{ font-size:1.28rem; line-height:1.55; margin-bottom:.6rem; }
+    .find a.dir{ font-size:1.02rem; }
 
     .masthead{ font-size:clamp(3rem,5.4vw,4.8rem); }
     .place{ font-size:1rem; }
@@ -362,6 +371,16 @@
       <p>If it's beef or pork, Joe has it &mdash; and he'll cut it to your order.</p>
     </section>
 
+    <hr class="rule">
+
+    <div class="contact">
+      <a class="call" href="tel:+13045626291">
+        <span class="small">Best way to reach the shop &mdash; give us a call</span>
+        <span class="num">(304) 562-6291</span>
+      </a>
+      <p class="reach">For a custom processing question or special order, please give the shop a call.</p>
+    </div>
+
     <hr class="rule deck">
 
     <section class="hours">
@@ -380,22 +399,14 @@
 
     <hr class="rule">
 
-    <div class="contact">
-      <a class="call" href="tel:+13045626291">
-        <span class="small">Best way to reach the shop &mdash; give us a call</span>
-        <span class="num">(304) 562-6291</span>
-      </a>
-      <p class="reach">For a custom processing question or special order, please give the shop a call.</p>
-
-      <section class="find">
-        <p class="label">Where to find us</p>
-        <address>
-          813 Hurricane Creek Rd<br>
-          Hurricane, WV 25526
-        </address>
-        <a class="dir" href="https://www.google.com/maps/search/?api=1&amp;query=Joe+Leadmon+Meat+Shop+813+Hurricane+Creek+Rd+Hurricane+WV+25526">Get directions &rarr;</a>
-      </section>
-    </div>
+    <section class="find">
+      <p class="label">Where to find us</p>
+      <address>
+        813 Hurricane Creek Rd<br>
+        Hurricane, WV 25526
+      </address>
+      <a class="dir" href="https://www.google.com/maps/search/?api=1&amp;query=Joe+Leadmon+Meat+Shop+813+Hurricane+Creek+Rd+Hurricane+WV+25526">Get directions &rarr;</a>
+    </section>
 
     <footer>
       <span class="name">Joe's Farm Meat Market</span> &middot; Hurricane, West Virginia
