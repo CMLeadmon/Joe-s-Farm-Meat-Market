@@ -197,12 +197,12 @@
   .hours dd{ margin:0; font-variant-numeric:tabular-nums; }
   .hours .row.closed dt,
   .hours .row.closed dd{ color:var(--ink-soft); font-weight:400; }
-  .hours .note{
+  .note{
     margin:.9rem 0 0;
     font-size:.85rem;
     color:var(--ink-soft);
   }
-  .hours .note .early{ color:var(--stamp); font-weight:700; }
+  .note .early{ color:var(--stamp); font-weight:700; }
 
   /* ---- call: the one loud thing ---- */
   .call{
@@ -298,10 +298,11 @@
       align-items:start;
       grid-template-areas:
         "head  art"
-        "bio   contact"
+        "bio   find"
         "sells contact"
         "deck  deck"
-        "hours find"
+        "hours hours"
+        "note  note"
         "foot  foot";
     }
 
@@ -314,9 +315,11 @@
     .bio     { grid-area:bio; }
     .sells   { grid-area:sells; }
     .deck    { grid-area:deck; display:block; }
-    .hours   { grid-area:hours; align-self:start; }
+    .hours   { grid-area:hours; text-align:center; }
+    .hours dl{ max-width:40rem; margin-inline:auto; }
     .contact { grid-area:contact; align-self:start; }
     .find    { grid-area:find; align-self:start; }
+    .note    { grid-area:note; text-align:center; max-width:40rem; margin-inline:auto; }
     footer   { grid-area:foot; }
 
     /* the address gets room to breathe down here — make it count */
@@ -329,7 +332,6 @@
 
     /* the clipping now pairs with the sign as the hero */
     .clipping{ width:100%; margin:.35rem 0 1rem; }
-    .find{ margin-top:1.85rem; }
   }
 
   @media (prefers-reduced-motion:reduce){
@@ -373,6 +375,17 @@
 
     <hr class="rule">
 
+    <section class="find">
+      <p class="label">Where to find us</p>
+      <address>
+        813 Hurricane Creek Rd<br>
+        Hurricane, WV 25526
+      </address>
+      <a class="dir" href="https://www.google.com/maps/search/?api=1&amp;query=Joe+Leadmon+Meat+Shop+813+Hurricane+Creek+Rd+Hurricane+WV+25526">Get directions &rarr;</a>
+    </section>
+
+    <hr class="rule">
+
     <div class="contact">
       <a class="call" href="tel:+13045626291">
         <span class="small">Best way to reach the shop &mdash; give us a call</span>
@@ -394,19 +407,9 @@
         <div class="row closed"><dt>Saturday</dt><dd>closed</dd></div>
         <div class="row closed"><dt>Sunday</dt><dd>closed</dd></div>
       </dl>
-      <p class="note"><span class="early">Note:</span> We close an hour early on Thursdays, at 4 &mdash; that's our day to pick up from the slaughterhouse, so everything comes in fresh.</p>
     </section>
 
-    <hr class="rule">
-
-    <section class="find">
-      <p class="label">Where to find us</p>
-      <address>
-        813 Hurricane Creek Rd<br>
-        Hurricane, WV 25526
-      </address>
-      <a class="dir" href="https://www.google.com/maps/search/?api=1&amp;query=Joe+Leadmon+Meat+Shop+813+Hurricane+Creek+Rd+Hurricane+WV+25526">Get directions &rarr;</a>
-    </section>
+    <p class="note"><span class="early">Note:</span> We close an hour early on Thursdays, at 4 &mdash; that's our day to pick up from the slaughterhouse, so everything comes in fresh.</p>
 
     <footer>
       <span class="name">Joe's Farm Meat Market</span> &middot; Hurricane, West Virginia
