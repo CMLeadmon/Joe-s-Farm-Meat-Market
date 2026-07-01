@@ -1,0 +1,6 @@
+# Local Claude Code project instructions — kept out of the deployed site
+CLAUDE.md
+
+# OS cruft
+.DS_Store
+Thumbs.db
