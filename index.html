@@ -25,6 +25,7 @@
     --stamp:#7e2018;          /* oxblood: the USDA meat stamp & grease pencil */
     --stamp-deep:#5c160f;     /* pressed */
     --tape:rgba(208,189,150,.55);
+    --visited:#6f4a6a;        /* a faded plum — the way a visited link used to fade */
 
     --measure:34rem;          /* a comfortable single column */
   }
@@ -106,7 +107,8 @@
     background:var(--paper-lit);
     padding:.55rem .55rem .5rem;
     border:1px solid rgba(120,90,50,.35);
-    box-shadow:0 14px 28px -14px rgba(50,32,12,.55), 0 2px 4px rgba(50,32,12,.2);
+    /* a hard offset drop-shadow, the old-web way — kept faint so it reads as patina */
+    box-shadow:4px 5px 0 rgba(74,49,22,.18), 0 2px 5px rgba(50,32,12,.16);
     transform:rotate(-1.4deg);
     transform-origin:50% 0;
     animation:settle .9s cubic-bezier(.2,.8,.2,1) both;
@@ -213,7 +215,11 @@
     text-align:center;
     padding:1.15rem 1rem 1.25rem;
     border:2px solid var(--stamp-deep);
-    box-shadow:0 10px 0 -2px var(--stamp-deep);
+    /* a soft outset bevel sits on top of the press-down shadow */
+    box-shadow:
+      inset 0 2px 0 rgba(255,236,200,.22),
+      inset 0 -3px 0 rgba(0,0,0,.22),
+      0 10px 0 -2px var(--stamp-deep);
     transition:transform .08s ease, box-shadow .08s ease;
   }
   .call .small{
@@ -232,7 +238,10 @@
   }
   .call:active{
     transform:translateY(6px);
-    box-shadow:0 4px 0 -2px var(--stamp-deep);
+    box-shadow:
+      inset 0 2px 0 rgba(255,236,200,.22),
+      inset 0 -3px 0 rgba(0,0,0,.22),
+      0 4px 0 -2px var(--stamp-deep);
   }
   .call:focus-visible{ outline:3px solid var(--ink); outline-offset:4px; }
 
@@ -265,6 +274,8 @@
     border-bottom:1.5px solid var(--stamp);
     padding-bottom:1px;
   }
+  /* once you've been, the link fades to plum — the old-web way */
+  .find a.dir:visited{ color:var(--visited); border-bottom-color:var(--visited); }
   .find a.dir:focus-visible{ outline:3px solid var(--ink); outline-offset:3px; }
 
   /* ---- footer: serve, don't sell ---- */
@@ -278,6 +289,28 @@
   }
   footer .name{ color:var(--ink); font-weight:700; }
   footer .serve{ margin:.6rem 0 0; }
+
+  /* a tiny hit counter, tinted to the paper instead of neon — one quiet wink to the old web */
+  .counter-line{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:.45rem;
+    margin:1.1rem 0 0;
+    font-size:.72rem;
+    letter-spacing:.05em;
+    color:var(--ink-soft);
+  }
+  .counter{ display:inline-flex; gap:2px; }
+  .counter b{
+    font-weight:700;
+    font-size:.78rem;
+    color:var(--paper-lit);
+    background:var(--ink);
+    padding:1px 4px 0;
+    border:1px solid var(--stamp-deep);
+    box-shadow:inset 0 1px 0 rgba(247,239,218,.12);
+  }
 
   /* ---- desktop: the sheet becomes a broadside laid on the counter ---- */
   @media (min-width:760px){
@@ -321,6 +354,7 @@
     .find    { grid-area:find; align-self:start; }
     .note    { grid-area:note; text-align:center; max-width:40rem; margin-inline:auto; }
     footer   { grid-area:foot; }
+    .counter-line{ justify-content:center; }
 
     /* the address gets room to breathe down here — make it count */
     .find address{ font-size:1.28rem; line-height:1.55; margin-bottom:.6rem; }
@@ -346,7 +380,7 @@
     <header class="head">
       <p class="eyebrow">Hurricane, West Virginia &middot; Since 1973</p>
       <h1 class="masthead">Joe's<br>Farm Meat<br>Market</h1>
-      <p class="place">A butcher shop on Hurricane Creek Road.</p>
+      <p class="place">A good butcher shop on Hurricane Creek Road.</p>
     </header>
 
     <!-- the signature: the clipping Joe would've taped up himself -->
@@ -409,11 +443,15 @@
       </dl>
     </section>
 
-    <p class="note"><span class="early">Note:</span> We close an hour early on Thursdays, at 4 &mdash; that's our day to pick up from the slaughterhouse, so everything comes in fresh.</p>
+    <p class="note"><span class="early">Note:</span> We close an hour early on Thursdays, at 4 &mdash; that's our day to pick up from the slaughterhouse.</p>
 
     <footer>
       <span class="name">Joe's Farm Meat Market</span> &middot; Hurricane, West Virginia
       <p class="serve">We don't ship, and we don't sell online &mdash; we'd be glad to see you at the shop.</p>
+      <p class="counter-line">Over
+        <span class="counter"><b>5</b><b>7</b><b>9</b><b>8</b><b>5</b><b>3</b><b>9</b></span>
+        pounds of meat ground.
+      </p>
     </footer>
 
   </main>
